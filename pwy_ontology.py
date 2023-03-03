@@ -1,6 +1,6 @@
 import sys
 from padmet.classes import PadmetSpec
-from ete3 import Tree, faces, AttrFace, TreeStyle
+from ete3 import Tree#, faces, AttrFace, TreeStyle
 import argparse
 
 """From a padmet ref (metacyc database)
@@ -128,17 +128,17 @@ if __name__ == '__main__':
     for elem in classes_with_pwys_as_child:
         add_children(t, elem, classes_with_pwys_as_child)
 
-    ts = TreeStyle()
+    #ts = TreeStyle()
     # Do not add leaf names automatically
-    ts.show_leaf_name = False
+    #ts.show_leaf_name = False
     # ts.show_leaf_name = True
     # Use my custom layout
-    ts.layout_fn = my_layout
-    ts.mode = "c"
+    #ts.layout_fn = my_layout
+    #ts.mode = "c"
     # ts.arc_start = -360 # 0 degrees = 3 o'clock
     # ts.arc_span = 180
     # t.show(tree_style=ts)
-    t.render("mytree.svg", w=300, units="mm",tree_style=ts)
+    #t.render("mytree.svg", w=300, units="mm",tree_style=ts)
 
 
     for node in t.search_nodes(name="PWY-7592"):
@@ -154,8 +154,8 @@ if __name__ == '__main__':
 
     t.write(outfile=outfile, format=8)
 
-    p = Tree(outfile, format=8)
-    p.get_tree_root().name = "Pathways"
+    # p = Tree(outfile, format=8)
+    # p.get_tree_root().name = "Pathways"
 
     # rf, max_rf, common_leaves, parts_t1, parts_t2 = t.robinson_foulds(p)
     # print( "RF distance is %s over a total of %s" %(rf, max_rf))

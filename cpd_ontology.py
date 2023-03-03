@@ -135,30 +135,30 @@ if __name__ == '__main__':
 
     t.write(outfile=outfile, format=8)
 
-    p = Tree(outfile, format=8)
-    # p.get_tree_root().name = "Chemicals"
-    p.get_tree_root().name = "Compounds"
+    # p = Tree(outfile, format=8)
+    # # p.get_tree_root().name = "Chemicals"
+    # p.get_tree_root().name = "Compounds"
 
-    # paths = [[a.name for a in i.get_ancestors()] for i in t.search_nodes(name="D-Glucose")] # GLC Glucopyranose
+    # # paths = [[a.name for a in i.get_ancestors()] for i in t.search_nodes(name="D-Glucose")] # GLC Glucopyranose
+    # # for i in paths: 
+    # #      print(list(reversed(i)))
+
+
+    # paths = [[a.name for a in i.get_ancestors()] for i in p.search_nodes(name="D-Glucose")] # GLC Glucopyranose
     # for i in paths: 
-    #      print(list(reversed(i)))
+    #     print(list(reversed(i)))
 
-
-    paths = [[a.name for a in i.get_ancestors()] for i in p.search_nodes(name="D-Glucose")] # GLC Glucopyranose
-    for i in paths: 
-        print(list(reversed(i)))
-
-    ts = TreeStyle()
-    # Do not add leaf names automatically
-    ts.show_leaf_name = False
-    # ts.show_leaf_name = True
-    # Use my custom layout
-    ts.layout_fn = my_layout
-    ts.mode = "c"
-    # ts.arc_start = -360 # 0 degrees = 3 o'clock
-    # ts.arc_span = 180
-    # t.show(tree_style=ts)
-    p.render(tree_file, w=300, units="mm",tree_style=ts)
+    # ts = TreeStyle()
+    # # Do not add leaf names automatically
+    # ts.show_leaf_name = False
+    # # ts.show_leaf_name = True
+    # # Use my custom layout
+    # ts.layout_fn = my_layout
+    # ts.mode = "c"
+    # # ts.arc_start = -360 # 0 degrees = 3 o'clock
+    # # ts.arc_span = 180
+    # # t.show(tree_style=ts)
+    # p.render(tree_file, w=300, units="mm",tree_style=ts)
 
 
     # rf, max_rf, common_leaves, parts_t1, parts_t2 = t.robinson_foulds(p)
