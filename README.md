@@ -43,3 +43,5 @@ build a tree with all parent/children relationships used to describe metabolites
 `get_family_metabolites.py` retrieves the families of given compounds and pathways using families ontology (json file).
 
 `analyse_all_mn_cpds.py` and `analyse_all_mn_pwys.py` analyse the pathways or metabolites of directory of metabolic networks and retrieve for each of them the representation of each category of compounds/pathway using a json ontology of Metacyc. 
+
+`onto_json_to_long_format` create tabulated files out of the json ontologies of pathways. 
