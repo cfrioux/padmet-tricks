@@ -28,8 +28,17 @@ if __name__ == '__main__':
     for rxn_id in rxn_list:
         rxn_pwy[rxn_id] = [rlt.id_out for rlt in p_ref.dicOfRelationIn[rxn_id] if rlt.type == "is_in_pathway"]
 
+    pwy_dict = {node.id: node for node in p_ref.dicOfNode.values() if node.type == "pathway"}
+    pathway_names = {}
+    for pid in pwy_dict:
+        if 'COMMON-NAME' in pwy_dict[pid].misc:
+            pathway_names[pid] = pwy_dict[pid].misc['COMMON-NAME'][0]
+        else:
+            print(pid)
+            pathway_names[pid] = pid
+
     with open(args.output, "w") as f:
-        f.write("reaction\tpathway\n")
+        f.write("reaction\tpathway-id\tpathway-name\n")
         for elem in rxn_pwy:
             for pwy in rxn_pwy[elem]:
-                f.write(elem + "\t" + pwy + "\n")
+                f.write(elem + "\t" + pwy + "\t" + pathway_names[pwy] + "\n")
